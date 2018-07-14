@@ -1,7 +1,7 @@
-# # Create Bike clasee
-# class Bike
+# Create Bike clasee
+class Bike
 
-#     # Workign method
-#     def working?
-#     end
-# end
+    # Workign method
+    def working?
+    end
+end

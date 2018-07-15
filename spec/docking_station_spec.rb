@@ -22,7 +22,7 @@ describe DockingStation do
         it "Expects bike to be working" do
             bike = Bike.new
             subject.dock(bike)
-            expect(subject.release_bike).to be_working
+            expect(subject.release_bike).to be_working 
         end
 
         it 'raises an error when there are no bikes available' do

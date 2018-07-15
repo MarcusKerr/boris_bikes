@@ -1,21 +1,10 @@
 
 require_relative "Bike"
 class DockingStation
-    attr_reader :bike
+    DEFAULT_CAPACITY = 20
     def initialize
         @bikes = []
-    end
-
-    private
-        # Predicate method to check if dock is full
-        def full?
-            @bikes.count >= 20 
-        end 
         
-        # Private method to check if dock is empty
-        def empty?
-            @bikes.empty?
-        end 
     end
     
     # Releade bike method
@@ -28,4 +17,16 @@ class DockingStation
         fail "Docking Station full" if full?
         @bikes << bike
     end
+    
+    private
+    
+    # Predicate method to check if dock is full
+    def full?
+        @bikes.count >= DEFAULT_CAPACITY
+    end 
+    
+    # Private method to check if dock is empty
+    def empty?
+        @bikes.empty?
+    end 
 end

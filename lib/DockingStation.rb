@@ -5,7 +5,7 @@ class DockingStation
     
     # Releade bike method
     def release_bike
-       Bike.new
+       @bike
     end
 
     def dock(bike)

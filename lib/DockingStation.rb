@@ -5,6 +5,7 @@ class DockingStation
     
     # Releade bike method
     def release_bike
+       fail "No bikes available" unless @bike
        @bike
     end
 

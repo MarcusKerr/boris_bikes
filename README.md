@@ -8,7 +8,7 @@ Boris Bikes pair programming challeng
 ### Week 1, 10/07/18
 
 Brief description of what the project is
-
+18 - onwards solo
 # user stories
 
 ```

@@ -1,10 +1,9 @@
 require 'Van'
 
 describe Van do
-  let(:bike) { double :bike_instance}
+  let(:bike) { double :bike_instance }
   let(:docking_station) { double :DockingStation, broken_bikes: [bike] }
   let(:garage) { double :garage, fixed_bikes: [bike] }
-
 
   describe '#capacity' do
     it 'has a capacity fo 5 bikes' do
@@ -21,17 +20,16 @@ describe Van do
     end
 
     it 'collects fixed bikes from garages' do
-      allow(garage).to receive(:is_a?).and_return(true)
+      allow(garage).to receive(:is_a?).and_return(false)
       subject.collect_bikes(garage)
       expect(subject.bikes).to eq(garage.fixed_bikes)
-    end 
+    end
   end
 
   describe '#deliver' do
     it 'delivers broken bikes to a garage' do
       subject.deliver_bikes(garage)
       expect(subject.bikes).to be_empty
-    end 
+    end
   end
-
 end

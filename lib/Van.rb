@@ -8,9 +8,13 @@ class Van
   end
 
   def collect_bikes(destination)
-    if destination.is_a?(DockingStation)
+    if docking_station?(destination)
       destination.broken_bikes.each do |bike|
-        bikes.push(bike)
+        bikes << bike
+      end
+    else
+      destination.fixed_bikes.each do |bike|
+        bikes << bike
       end
     end
   end
@@ -20,5 +24,10 @@ class Van
       destination.unload(bikes)
       @bikes = []
     end
+  end
+
+  def docking_station?(destination)
+    return true if destination.is_a?(DockingStation)
+    false
   end
 end

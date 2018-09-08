@@ -1,7 +1,6 @@
 require_relative 'Bike'
 
 class Garage
-
   attr_reader :broken_bikes, :fixed_bikes
 
   def initialize
@@ -11,7 +10,7 @@ class Garage
 
   def unload(bikes)
     bikes.each do |bike|
-      @broken_bikes << bike 
+      @broken_bikes << bike
     end
   end
 
@@ -22,6 +21,4 @@ class Garage
     end
     @broken_bikes = []
   end
-
-
 end

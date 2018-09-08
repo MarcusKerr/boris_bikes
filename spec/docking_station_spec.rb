@@ -2,6 +2,8 @@ require 'DockingStation'
 
 describe DockingStation do
   let(:bike) { double :bike_instance }
+  let(:bike2) { double :bike_instance }
+  let(:bike3) { double :bike_instance }
 
   it 'Allows bikes to be docked' do
     expect(subject).to respond_to(:dock).with(1).argument
@@ -26,8 +28,11 @@ describe DockingStation do
     end
 
     it 'raises an error when the docking station is full' do
-      subject.capacity.times { subject.dock bike }
-      expect { subject.dock bike }.to raise_error 'Docking Station full'
+      # subject.capacity.times { subject.dock bike }
+      ds = DockingStation.new(2)
+      ds.dock(bike2)
+      ds.dock(bike3)
+      expect { ds.dock bike }.to raise_error 'Docking Station full'
     end
   end
 
@@ -71,10 +76,7 @@ describe DockingStation do
     end
 
     it 'defaults capacity to 20' do
-      described_class::DEFAULT_CAPACITY.times do
-        subject.dock(bike)
-      end
-      expect { subject.dock(bike) }.to raise_error 'Docking Station full'
+      expect(described_class::DEFAULT_CAPACITY).to eq 20
     end
 
     it 'can take custom default capacity' do

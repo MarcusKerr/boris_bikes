@@ -17,6 +17,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise 'This bike has already been docked' if bikes.include?(bike)
     raise 'Docking Station full' if full?
     @bike = bike
     bikes << @bike

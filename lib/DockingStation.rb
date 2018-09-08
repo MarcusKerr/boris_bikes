@@ -12,7 +12,7 @@ class DockingStation
 
   def release(bike)
     raise 'No bikes available' if empty?
-    raise 'Sorry, this bike is broken' if bike.broken?
+    raise 'Sorry, this bike is broken' unless bike.working?
     bikes.delete_at(bikes.index(bike))
   end
 

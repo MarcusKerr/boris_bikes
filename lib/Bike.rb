@@ -1,5 +1,6 @@
 class Bike
   def working?
+    return false if broken?
     true
   end
 

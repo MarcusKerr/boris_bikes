@@ -30,12 +30,47 @@ Person  |
 Bike  | working?
 DockingStation | release_bike
 
-
 Diagram of how the Objects will use Messages to comminicate with one another
 
 ```
 DockingStation <-- release_bike --> Bike
 Bike <-- working? --> true/false
+```
+
+Additional user stories
+
+```
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
+```
+```
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
+```
+
+Again an objects and messages diagram
+
+Objects  | Messages
+------------- | -------------
+Person  |
+Bike  |
+DockingStation | dock(bike), bike
+
+Communication diagram
+
+```
+DockingStation <-- dock(bike) --> bikes[].pop(bikr)
+DockingStaion <-- bike --> bike
+```
+
+More user stories ....
+
+```
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
 ```
 
 

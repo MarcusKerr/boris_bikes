@@ -1,29 +1,23 @@
 require_relative 'Garage'
 class Van
   attr_reader :capacity, :bikes
-  
-  def initialize 
+
+  def initialize
     @capacity = 5
     @bikes = []
   end
 
   def collect_bikes(destination)
-    if docking_station?(destination)
-      destination.broken_bikes.each do |bike|
-        bikes << bike
-      end
-    else
-      destination.fixed_bikes.each do |bike|
-        bikes << bike
-      end
-    end
+    @bikes = if docking_station?(destination)
+               destination.broken_bikes
+             else
+               destination.fixed_bikes
+             end
   end
 
   def deliver_bikes(destination)
-    if destination.is_a?(Garage)
-      destination.unload(bikes)
-      @bikes = []
-    end
+    destination.unload(@bikes)
+    @bikes = []
   end
 
   def docking_station?(destination)

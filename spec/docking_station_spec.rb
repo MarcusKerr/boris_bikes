@@ -67,7 +67,7 @@ describe DockingStation do
     end
   end
 
-  describe 'initialization' do
+  describe '#initialize' do
     it 'has a default capacity' do
       expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
     end
@@ -79,6 +79,14 @@ describe DockingStation do
     it 'can take custom default capacity' do
       ds = DockingStation.new(60)
       expect(ds.capacity).to eq(60)
+    end
+  end
+
+  describe '#unload' do
+    it'unloads fixed bikes' do
+      bikes = [bike2, bike3]
+      subject.unload(bikes)
+      expect(subject.bikes).to eq(bikes)
     end
   end
 end

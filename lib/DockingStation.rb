@@ -33,5 +33,11 @@ class DockingStation
     bikes.empty?
   end
 
+  def unload(bikes)
+    bikes.each do |bike|
+      @bikes << bike
+    end    
+  end
+
   private :full?, :empty?
 end

@@ -6,9 +6,11 @@ class Van
     @bikes = []
   end
 
-  def collect_bikes(docking_station)
-    docking_station.broken_bikes.each do |bike|
-      bikes.push(bike)
+  def collect_bikes(destination)
+    if destination.is_a?(DockingStation)
+      destination.broken_bikes.each do |bike|
+        bikes.push(bike)
+      end
     end
   end
 end

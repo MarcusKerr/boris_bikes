@@ -46,7 +46,7 @@ describe DockingStation do
   end
 
   describe 'initialization' do
-    it 'defaults capacity' do
+    it 'defaults capacity to 20' do
       described_class::DEFAULT_CAPACITY.times do
         subject.dock(Bike.new)
       end

@@ -54,8 +54,8 @@ describe DockingStation do
     end
 
     it 'can take custom default capacity' do
-        ds = DockingStation.new(60)
-        expect(ds.capacity).to eq(60)
-    end 
+      ds = DockingStation.new(60)
+      expect(ds.capacity).to eq(60)
+    end
   end
 end

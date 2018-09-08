@@ -6,8 +6,7 @@ describe Bike do
   describe '#report_broken' do
     it 'sets bikes status to broke' do
       subject.report_broken
-      expect(subject.broken?).to be broken
+      expect(subject.broken?).to be(true)
     end
   end
-
 end

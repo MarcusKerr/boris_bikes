@@ -20,6 +20,11 @@ describe DockingStation do
       expect(subject.bikes).to include(bike)
     end
 
+    it 'does not allow the same bike to be docked twice' do
+      subject.dock(bike)
+      expect { subject.dock bike }.to raise_error 'This bike has already been docked'
+    end
+
     it 'raises an error when the docking station is full' do
       subject.capacity.times { subject.dock bike }
       expect { subject.dock bike }.to raise_error 'Docking Station full'

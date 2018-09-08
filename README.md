@@ -1,73 +1,28 @@
 # Boris Bikes
-### Week 1, 10/07/18
-Pairing with Jack
+### Week 1, 10/07/18 -13/07/18
+My first pairing assignment at makers!
 
-Boris Bikes pair programming challeng
+I completed the first 7 user stories during the pairing sessions and completed the project in my free time.
 
-# Boris Bikes
-### Week 1, 10/07/18
-
-Brief description of what the project is
-18 - onwards solo
 # user stories
 
 ```
 As a person,
 So that I can use a bike,
 I'd like a docking station to release a bike.
-```
-```
+
 As a person,
 So that I can use a good bike,
 I'd like to see if a bike is working
-```
 
-Functional representation of user stories
-
-Objects  | Messages
-------------- | -------------
-Person  |
-Bike  | working?
-DockingStation | release_bike
-
-Diagram of how the Objects will use Messages to comminicate with one another
-
-```
-DockingStation <-- release_bike --> Bike
-Bike <-- working? --> true/false
-```
-
-Additional user stories
-
-```
 As a member of the public
 So I can return bikes I've hired
 I want to dock my bike at the docking station
-```
-```
+
 As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked
-```
 
-Again an objects and messages diagram
-
-Objects  | Messages
-------------- | -------------
-Person  |
-Bike  |
-DockingStation | dock(bike), bike
-
-Communication diagram
-
-```
-DockingStation <-- dock(bike) --> bikes[].pop(bikr)
-DockingStaion <-- bike --> bike
-```
-
-More user stories ....
-
-```
 As a member of the public,
 So that I am not confused and charged unnecessarily,
 I'd like docking stations not to release bikes when there are none available.
@@ -101,6 +56,7 @@ So that I can manage broken bikes and not disappoint users,
 I'd like vans to collect working bikes from garages and distribute them to docking stations.
 ```
 
+# Objects and messages diagram
 
 ## Getting started
 

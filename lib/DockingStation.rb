@@ -10,14 +10,16 @@ class DockingStation
     @capacity = capacity
   end
 
-  def release_bike
+  def release(bike)
     raise 'No bikes available' if empty?
-    bikes.pop
+    raise 'Sorry, this bike is broken' if bike.broken?
+    bikes.delete_at(bikes.index(bike))
   end
 
   def dock(bike)
     raise 'Docking Station full' if full?
-    bikes << bike
+    @bike = bike
+    bikes << @bike
   end
 
   def full?

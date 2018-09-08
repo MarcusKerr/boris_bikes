@@ -22,8 +22,8 @@ describe Van do
 
   describe '#deliver' do
     it 'delivers broken bikes to a garage' do
-      subject.deliver(garage)
-      expect(subject.broken_bikes).to be empty
+      subject.deliver_bikes(garage)
+      expect(subject.bikes).to be_empty
     end 
   end
 

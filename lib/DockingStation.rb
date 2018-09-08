@@ -1,12 +1,14 @@
 require_relative 'Bike'
+require_relative 'Van'
 class DockingStation
   DEFAULT_CAPACITY = 20
 
   attr_accessor :capacity
-  attr_reader :bikes
+  attr_reader :bikes, :broken_bikes
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
+    @broken_bikes = []
     @capacity = capacity
   end
 
@@ -20,7 +22,7 @@ class DockingStation
     raise 'This bike has already been docked' if bikes.include?(bike)
     raise 'Docking Station full' if full?
     @bike = bike
-    bikes << @bike
+    bike.working? ? @bikes << @bike : @broken_bikes << @bike
   end
 
   def full?

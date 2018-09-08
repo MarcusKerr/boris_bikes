@@ -13,16 +13,19 @@ describe DockingStation do
     it 'allows broken bikes to be docked' do
       allow(bike).to receive(:report_broken).and_return(true)
       bike.report_broken
+      allow(bike).to receive(:working?).and_return(false)
       subject.dock(bike)
-      expect(subject.bikes).to include(bike)
+      expect(subject.broken_bikes).to include(bike)
     end
 
     it 'allows working bikes to be docked' do
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock(bike)
       expect(subject.bikes).to include(bike)
     end
 
     it 'does not allow the same bike to be docked twice' do
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock(bike)
       expect { subject.dock bike }.to raise_error 'This bike has already been docked'
     end
@@ -30,6 +33,8 @@ describe DockingStation do
     it 'raises an error when the docking station is full' do
       # subject.capacity.times { subject.dock bike }
       ds = DockingStation.new(2)
+      allow(bike2).to receive(:working?).and_return(true)
+      allow(bike3).to receive(:working?).and_return(true)
       ds.dock(bike2)
       ds.dock(bike3)
       expect { ds.dock bike }.to raise_error 'Docking Station full'
@@ -49,15 +54,6 @@ describe DockingStation do
       expect(subject.release(bike)).to be_working
     end
 
-    it 'does not release a broken bike' do
-      allow(bike).to receive(:report_broken).and_return(true)
-      bike.report_broken
-      subject.dock(bike)
-      allow(bike).to receive(:working?).and_return(false)
-      expect { subject.release(bike) }.to raise_error 'Sorry, this bike is broken'
-      expect(subject.bikes).to include(bike)
-    end
-
     it 'raises an error when there are no bikes available' do
       expect { subject.release(bike) }.to raise_error 'No bikes available'
     end
@@ -65,6 +61,7 @@ describe DockingStation do
 
   describe '#bikes' do
     it 'returns the docked bikes' do
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock(bike)
       expect(subject.bikes).to include(bike)
     end

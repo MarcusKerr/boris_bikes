@@ -1,3 +1,5 @@
+
+# Type there commands into irb
 require './lib/DockingStation'
 ds = DockingStation.new
 b1 = Bike.new

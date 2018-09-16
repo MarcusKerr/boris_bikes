@@ -4,7 +4,7 @@
 
 My first pairing assignment at makers! - Build a clone of the Boris Bike system!
 
-![boris-bikes](https://user-images.githubusercontent.com/15127871/45594943-501dcd80-b99b-11e8-9dae-5ee3e56cd3d9.jpg)
+![boris bikes](https://user-images.githubusercontent.com/15127871/45600298-4ecbbf80-b9f2-11e8-9906-347c948f8e24.jpg)
 
 ## Goals
 
@@ -18,7 +18,7 @@ I completed the first 7 user stories during the pairing sessions and compeleted 
 
 ## Getting started
 
-`git clone https://github.com/MarcusKerr/boris_bikes.git`
+`$ git clone https://github.com/MarcusKerr/boris_bikes.git`
 
 ## How to use
 
@@ -31,37 +31,37 @@ $ irb
 
 First, you will need a Docking Station. Docking stations have a default capcity of 20, however this can be overridden by passing an integer as an argument upon instantiation.
 
-``` console
+``` terminal
 > docking_station = DockingStation.new
 ```
 
 After you have you Docking Station, you will need a Bike!
 
-``` conosle
+``` terminal
 > bmx = Bike.new
 ```
 
 This bike can now be docked...
 
-``` console
+``` terminal
 > docking_station.dock(unicorn_bmx)
 ```
 
 And released.
 
-``` console
+``` terminal
 > docking_station.release(unicorn_bmx)
 ```
 
 To see which bikes are available for release use the `bikes` method on a Docking Station.
 
-``` console
+``` terminal
 > docking_station.bikes
 ```
 
 If you happen to break your bike, please report it as broken.
 
-``` console
+``` terminal
 > bmx.report_broken
 ```
 
@@ -69,40 +69,40 @@ Broken bikes can be docked but they are not available for release.
 
 If you would like to fix the broken bikes, you will need a Van and a Garage.
 
-``` console
+``` terminal
 > transit = Van.new
 > halfords = Garage.new
 ```
 
 Vans have a capacity of 5 bikes and you can see which bikes are being held by a Van using the bikes method.
 
-``` console
+``` terminal
 > transit.bikes
 ```
 
 Collect the bikes form the Docking Station and deliver them to a Garage.
 
-``` console
+``` terminal
 > transit.collect(docking_station)
 > transit.deliver(halfords)
 ```
 
 Once the bikes are at the garage, they can the be fixed.
 
-``` console
+``` terminal
 > halfords.fix_bikes
 ```
 
 You can check the broken bikes and fixed bikes that are being held in a garage by calling the `broken_bikes` and `fixed_bikes` methods.
 
-```  console
+```  terminal
 > halfords.broken_bikes
 > halfords.fixed_bikes
 ```
 
 And once the bikes are fixed, you will want to tell the Van to collect them from the Garage and deliver them to a Docking Station.
 
-``` console
+``` terminal
 > transit.collect(halfords)
 > transit.deliver(docking_station)
 ```
@@ -111,19 +111,19 @@ And once the bikes are fixed, you will want to tell the Van to collect them from
 
 To run the entire test suite simply type `rspec` into the terminal.
 
-``` console
+``` terminal
 $ rspec
 ```
 
 And to run a specific test file, type rspec followed by said file's path.
 
-``` console
+``` terminal
 $ rspec spec/docking_station_spec.rb
 ```
 
 ## User Stories
 
-```console
+```terminal
 As a person
 So that I can use a bike
 I'd like a docking station to release a bike
@@ -185,7 +185,7 @@ Garage | fix_bikes
 
 ## Communication diagram
 
-```console
+```terminal
 DockingStation <-- release(bike) --> Bike
 DockingStation <-- dock(bike)
 DockingStation <-- bikes --> [Bike]

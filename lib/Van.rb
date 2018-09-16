@@ -7,7 +7,7 @@ class Van
     @bikes = []
   end
 
-  def collect_bikes(destination)
+  def collect(destination)
     @bikes = if docking_station?(destination)
                destination.broken_bikes
              else
@@ -15,7 +15,7 @@ class Van
              end
   end
 
-  def deliver_bikes(destination)
+  def deliver(destination)
     destination.unload(@bikes)
     @bikes = []
   end

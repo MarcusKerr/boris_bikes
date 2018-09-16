@@ -6,10 +6,10 @@ b2.report_broken
 ds.dock(b1)
 ds.dock(b2)
 van = Van.new
-van.collect_bikes(ds)
+van.collect(ds)
 g = Garage.new
-van.deliver_bikes(g)
+van.deliver(g)
 g.fix_bikes
-van.collect_bikes(g)
-van.deliver_bikes(ds)
+van.collect(g)
+van.deliver(ds)
 ds.bikes

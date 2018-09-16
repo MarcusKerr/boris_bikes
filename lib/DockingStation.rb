@@ -35,8 +35,8 @@ class DockingStation
 
   def unload(bikes)
     bikes.each do |bike|
-      @bikes << bike
-    end    
+      bike.working? ? @bikes << bike : @broken_bikes << bike
+    end
   end
 
   private :full?, :empty?

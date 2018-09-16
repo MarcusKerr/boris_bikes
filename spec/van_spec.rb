@@ -14,30 +14,30 @@ describe Van do
   describe '#collect' do
     it 'collects broken bikes from the docking station' do
       allow(docking_station).to receive(:is_a?).and_return(true)
-      subject.collect_bikes(docking_station)
+      subject.collect(docking_station)
       expect(subject.bikes).to eq(docking_station.broken_bikes)
     end
 
     it 'collects fixed bikes from garages' do
       allow(garage).to receive(:is_a?).and_return(false)
-      subject.collect_bikes(garage)
+      subject.collect(garage)
       expect(subject.bikes).to eq(garage.fixed_bikes)
     end
   end
 
-  describe '#deliver_bikes' do
+  describe '#deliver' do
     it '#delivers broken bikes to garage' do
       allow(docking_station).to receive(:is_a?).and_return(true)
-      subject.collect_bikes(docking_station)
+      subject.collect(docking_station)
       allow(garage).to receive(:unload).and_return(nil)
-      subject.deliver_bikes(garage)
+      subject.deliver(garage)
       expect(subject.bikes).to be_empty
     end
 
     it '#delivers fixed bikes to docking station' do
-      subject.collect_bikes(garage)
+      subject.collect(garage)
       allow(docking_station).to receive(:unload).and_return(nil)
-      subject.deliver_bikes(docking_station)
+      subject.deliver(docking_station)
       expect(subject.bikes).to be_empty
     end
   end

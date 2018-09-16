@@ -1,4 +1,4 @@
-require 'shared_examples_for_bike_container'
+require_relative './support/shared_examples_for_bike_container'
 class BikeContainerTest
   include BikeContainer
 end

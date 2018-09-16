@@ -83,10 +83,20 @@ describe DockingStation do
   end
 
   describe '#unload' do
-    it'unloads fixed bikes' do
+    it'unloads fixed bikes to bikes' do
       bikes = [bike2, bike3]
+      allow(bike2).to receive(:working?).and_return(true)
+      allow(bike3).to receive(:working?).and_return(false)
       subject.unload(bikes)
-      expect(subject.bikes).to eq(bikes)
+      expect(subject.bikes).to eq([bike2])
+    end
+
+    it'unloads broken bikes to broken bikes' do
+      bikes = [bike2, bike3]
+      allow(bike2).to receive(:working?).and_return(true)
+      allow(bike3).to receive(:working?).and_return(false)
+      subject.unload(bikes)
+      expect(subject.broken_bikes).to eq([bike3])
     end
   end
 end

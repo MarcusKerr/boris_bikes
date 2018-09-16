@@ -4,7 +4,8 @@
 
 My first pairing assignment at makers! - Build a clone of the Boris Bike system!
 
-![boris bikes](https://user-images.githubusercontent.com/15127871/45600298-4ecbbf80-b9f2-11e8-9906-347c948f8e24.jpg)
+![santander-bikes](https://user-images.githubusercontent.com/15127871/45600316-9fdbb380-b9f2-11e8-8620-3655ee159f84.jpg)
+
 
 ## Goals
 

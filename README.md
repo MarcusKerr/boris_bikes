@@ -4,6 +4,8 @@
 
 My first pairing assignment at makers! - Build a clone of the Boris Bike system!
 
+![boris-bikes](https://user-images.githubusercontent.com/15127871/45594943-501dcd80-b99b-11e8-9dae-5ee3e56cd3d9.jpg)
+
 ## Goals
 
 * I write code that is easy to change
